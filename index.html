@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARKER'S ADAPTER</title>
+    <link href="" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh; 
+            overflow-x: hidden;
+            position: relative;
+            font-family: 'Great Vibes', cursive;
+            background-color: #000;
+        }
+
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: url('../../media1.tenor.com/m/wxVTTTLYEFsAAAAC/your-name-wallpaper.gif') center/cover no-repeat;
+            filter: blur(10px) brightness(0.8);
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.3); 
+            opacity: 0; 
+            transition: opacity 1s ease 0.5s; 
+        }
+
+        .petals {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            z-index: 0; 
+            opacity: 0;
+            transition: opacity 1s ease 1.5s; 
+        }
+
+        .petal {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            opacity: 0; 
+            visibility: hidden;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) scale(1) rotateZ(0deg); 
+                opacity: 0;
+                visibility: hidden;
+            }
+            1% {
+                opacity: 0.7;
+                visibility: visible;
+            }
+            100% {
+                transform: translateY(110vh) scale(0.3) rotateZ(720deg);
+                opacity: 0;
+                visibility: visible;
+            }
+        }
+
+        .title-container {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .main-title {
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            transform: translateY(-50px); 
+            animation: fadeInTitle 1.5s ease-out forwards;
+        }
+
+        .sub-title {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            transform: translateY(20px); 
+            animation: fadeInSub 1s ease-out 0.8s forwards;
+        }
+
+        @keyframes fadeInTitle {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInSub {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .buttons {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s 1.5s forwards;
+            z-index: 1;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.1); 
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            font-size: 1.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title-container {
+                top: 25%;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                white-space: normal;
+            }
+            .main-title {
+                font-size: 3.5rem;
+                margin-bottom: 0;
+            }
+            .sub-title {
+                font-size: 2.2rem;
+                margin-top: 0;
+            }
+            .buttons {
+                top: 70%;
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .btn {
+                padding: 15px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title-container {
+                top: 20%;
+            }
+            .main-title {
+                font-size: 2.8rem;
+            }
+            .sub-title {
+                font-size: 1.8rem;
+            }
+            .buttons {
+                top: 75%;
+            }
+            .btn {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg" style="opacity: 1;"></div>
+    <div class="bg-overlay" style="opacity: 1;"></div>
+    
+    <div class="petals" style="opacity: 1;"><div class="petal" style="left: 90.9909%; width: 13.1215px; height: 13.1215px; animation-duration: 12.4623s; animation-delay: 7.16857s;"></div><div class="petal" style="left: 9.84697%; width: 11.0786px; height: 11.0786px; animation-duration: 14.6759s; animation-delay: 2.48243s;"></div><div class="petal" style="left: 18.0928%; width: 10.7099px; height: 10.7099px; animation-duration: 14.243s; animation-delay: 1.30333s;"></div><div class="petal" style="left: 18.2163%; width: 15.3538px; height: 15.3538px; animation-duration: 24.3179s; animation-delay: 6.91903s;"></div><div class="petal" style="left: 13.2336%; width: 9.38877px; height: 9.38877px; animation-duration: 11.5655s; animation-delay: 1.72539s;"></div><div class="petal" style="left: 51.7989%; width: 19.0464px; height: 19.0464px; animation-duration: 12.8252s; animation-delay: 7.41424s;"></div><div class="petal" style="left: 53.1696%; width: 8.6284px; height: 8.6284px; animation-duration: 10.8111s; animation-delay: 5.66225s;"></div><div class="petal" style="left: 25.0434%; width: 18.2208px; height: 18.2208px; animation-duration: 10.682s; animation-delay: 4.90042s;"></div><div class="petal" style="left: 2.41583%; width: 19.7611px; height: 19.7611px; animation-duration: 14.6208s; animation-delay: 6.5452s;"></div><div class="petal" style="left: 49.0782%; width: 9.27102px; height: 9.27102px; animation-duration: 14.0135s; animation-delay: 6.40625s;"></div><div class="petal" style="left: 63.7508%; width: 16.5207px; height: 16.5207px; animation-duration: 15.7848s; animation-delay: 3.03672s;"></div><div class="petal" style="left: 23.5002%; width: 13.1573px; height: 13.1573px; animation-duration: 12.2874s; animation-delay: 3.67509s;"></div><div class="petal" style="left: 92.7454%; width: 17.3713px; height: 17.3713px; animation-duration: 11.7977s; animation-delay: 4.53941s;"></div><div class="petal" style="left: 27.2696%; width: 8.76799px; height: 8.76799px; animation-duration: 22.6605s; animation-delay: 7.40982s;"></div><div class="petal" style="left: 51.8583%; width: 11.1998px; height: 11.1998px; animation-duration: 13.1068s; animation-delay: 5.9929s;"></div><div class="petal" style="left: 57.918%; width: 17.2322px; height: 17.2322px; animation-duration: 12.6079s; animation-delay: 7.63686s;"></div><div class="petal" style="left: 39.2833%; width: 16.8006px; height: 16.8006px; animation-duration: 17.4055s; animation-delay: 6.73124s;"></div><div class="petal" style="left: 20.5795%; width: 19.9112px; height: 19.9112px; animation-duration: 23.1076s; animation-delay: 4.00945s;"></div><div class="petal" style="left: 63.905%; width: 10.6341px; height: 10.6341px; animation-duration: 21.4604s; animation-delay: 0.627315s;"></div><div class="petal" style="left: 79.9282%; width: 15.3865px; height: 15.3865px; animation-duration: 24.8822s; animation-delay: 7.4058s;"></div><div class="petal" style="left: 69.8331%; width: 19.7371px; height: 19.7371px; animation-duration: 16.4147s; animation-delay: 0.546052s;"></div><div class="petal" style="left: 37.9601%; width: 17.9602px; height: 17.9602px; animation-duration: 12.9398s; animation-delay: 7.71775s;"></div><div class="petal" style="left: 34.267%; width: 17.1654px; height: 17.1654px; animation-duration: 22.8666s; animation-delay: 1.69183s;"></div><div class="petal" style="left: 50.331%; width: 18.5259px; height: 18.5259px; animation-duration: 15.1607s; animation-delay: 7.46389s;"></div><div class="petal" style="left: 29.2705%; width: 9.48577px; height: 9.48577px; animation-duration: 21.361s; animation-delay: 7.48657s;"></div><div class="petal" style="left: 4.28907%; width: 14.8283px; height: 14.8283px; animation-duration: 19.1406s; animation-delay: 4.76792s;"></div><div class="petal" style="left: 56.3288%; width: 18.1953px; height: 18.1953px; animation-duration: 22.4608s; animation-delay: 5.71789s;"></div><div class="petal" style="left: 21.4687%; width: 19.1091px; height: 19.1091px; animation-duration: 14.5464s; animation-delay: 4.39229s;"></div><div class="petal" style="left: 92.7393%; width: 14.5215px; height: 14.5215px; animation-duration: 13.8313s; animation-delay: 7.36467s;"></div><div class="petal" style="left: 97.689%; width: 19.0266px; height: 19.0266px; animation-duration: 18.783s; animation-delay: 6.47523s;"></div><div class="petal" style="left: 49.6433%; width: 11.9653px; height: 11.9653px; animation-duration: 14.5052s; animation-delay: 4.54391s;"></div><div class="petal" style="left: 57.5104%; width: 14.5747px; height: 14.5747px; animation-duration: 21.1686s; animation-delay: 5.4463s;"></div><div class="petal" style="left: 87.7379%; width: 11.092px; height: 11.092px; animation-duration: 24.4481s; animation-delay: 2.77939s;"></div><div class="petal" style="left: 82.9838%; width: 18.3141px; height: 18.3141px; animation-duration: 23.6207s; animation-delay: 1.96788s;"></div><div class="petal" style="left: 55.5201%; width: 18.9338px; height: 18.9338px; animation-duration: 20.9127s; animation-delay: 0.0335773s;"></div><div class="petal" style="left: 90.1248%; width: 17.6148px; height: 17.6148px; animation-duration: 15.1983s; animation-delay: 4.33524s;"></div><div class="petal" style="left: 45.6505%; width: 15.0941px; height: 15.0941px; animation-duration: 14.0449s; animation-delay: 5.97049s;"></div><div class="petal" style="left: 52.2731%; width: 12.9458px; height: 12.9458px; animation-duration: 17.6277s; animation-delay: 3.13153s;"></div><div class="petal" style="left: 52.6048%; width: 16.002px; height: 16.002px; animation-duration: 12.8699s; animation-delay: 3.18763s;"></div><div class="petal" style="left: 64.9526%; width: 14.2168px; height: 14.2168px; animation-duration: 20.9705s; animation-delay: 6.62597s;"></div></div>
+
+    <div class="title-container">
+        <span class="main-title">𝗗𝗿.𝗗𝗔𝗥𝗞𝗸𝗘𝗥</span>
+        <span class="sub-title">𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 𝘄𝗲𝗯𝘀𝗶𝘁𝗲</span>
+    </div>
+
+    <div class="buttons">
+        <a href="https://t.me/SHARKOFDARK" class="btn"><span>🦈𝙎𝙃𝘼𝙍𝙆 𝙊𝙁 𝘿𝘼𝙍𝙆🦈</span></a>
+        <a href="https://t.me/BIOSDARKER" class="btn"><span>👤𝗠𝘆 𝗯𝗶𝗼👤</span></a>
+        <a href="https://t.me/STPRICELIST" class="btn"><span>💸𝗠𝘆 𝗽𝗿𝗶𝗰𝗲 𝗹𝗶𝘀𝘁💸</span></a>
+        <a href="https://t.me/DrDARKkER" class="btn"><span>💳𝗠𝘆 𝗮𝗰𝗰𝗼𝘂𝗻𝘁💳</span></a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createPetals();
+            setTimeout(() => {
+                document.querySelector('.bg').style.opacity = 1;
+                document.querySelector('.bg-overlay').style.opacity = 1;
+                document.querySelector('.petals').style.opacity = 1;
+            }, 100);
+        });
+
+        function createPetals() {
+            const petalsContainer = document.querySelector('.petals');
+            petalsContainer.innerHTML = ''; 
+            const numberOfPetals = 40; 
+
+            for (let i = 0; i < numberOfPetals; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.left = Math.random() * 100 + '%';
+                const size = 8 + Math.random() * 12;
+                petal.style.width = size + 'px';
+                petal.style.height = size + 'px';
+                petal.style.animationDuration = 10 + Math.random() * 15 + 's'; 
+                petal.style.animationDelay = Math.random() * 8 + 's'; 
+                
+                petalsContainer.appendChild(petal);
+            }
+        }
+    </script>
+
+
+</body></html>
